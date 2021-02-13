@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Chain marketing</title>
+</head>
+
+<body>
+    <script>
+        const JOINAMT = 5000;
+        var childs = [];
+        var Commission, par_comm, Total_members;
+        var child_Arr;
+
+        var parent = prompt("Hello Dear!  Enter Your name ");
+
+
+        if (parent.trim() == "") {
+            alert("Invalid Input! please enter your name");
+            window.location.reload();
+
+        } else {
+            var childinfo = prompt("If you are adding any child member, please type 'Y' else 'N' ");
+            if (childinfo == "Y" || childinfo == "y") {
+                childs = prompt("Enter the name of child member separating them using ',' ");
+                child_Arr =  (childs.trim()).split(",");
+                Total_members = child_Arr.length + 1;
+                console.log("Total members : " + Total_members);
+                console.log("Commission Details");
+                Commission = (5 * JOINAMT) / 100;
+                par_comm = ((10 * JOINAMT) / 100) + (Commission * child_Arr.length);
+                console.log(parent + " : " + par_comm + " INR");
+                for (let i = 0; i < child_Arr.length; i++) {
+                    console.log(child_Arr[i] + " : " + Commission + " INR");
+                }
+            }
+            else if (childinfo == "N" || childinfo == "n") {
+                console.log("Total members : " + 1);
+                console.log("Commission Details");
+                Commission = (5 * JOINAMT) / 100;
+                console.log(parent + " : " + Commission + " INR");
+            }
+            else {
+                alert("Invalid input!! please enter either 'Y' or 'n'");
+                //  window.location.reload();
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
